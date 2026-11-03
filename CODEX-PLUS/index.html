@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CODEX | أكاديمية البرمجة</title><meta name="description" content="تعلّم HTML وCSS وJavaScript وPython خطوة بخطوة بدروس قصيرة وتحديات عملية."><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%92%BB%3C/text%3E%3C/svg%3E"><script src="auth.js"></script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html">CODE<span>X</span></a>
+  <nav><a href="#tracks">المسارات</a><a href="#how">طريقة التعلم</a><a href="playground.html">ساحة التجربة</a></nav>
+  <div class="top-points">⭐ <b id="totalXP">0</b> XP</div>
+</header>
+<main>
+<section class="hero wrap">
+  <div class="hero-text">
+    <span class="eyebrow">YOUR CODING JOURNEY STARTS HERE</span>
+    <h1>مش بس تتعلم كود...<br><em>اتعلم تبني.</em></h1>
+    <p>ابدأ بأساسيات البرمجة خطوة بخطوة. دروس قصيرة، أمثلة واضحة، تحديات إكمال كود، وتقدم محفوظ على جهازك.</p>
+    <a class="btn primary" href="#tracks">ابدأ رحلتك <span>←</span></a>
+    <div class="hero-proof"><span>✓ مناسب للمبتدئين</span><span>✓ تدريب عملي</span><span>✓ تقدم محفوظ</span></div>
+  </div>
+  <div class="hero-visual">
+    <div class="editor-card"><div class="editor-top"><i></i><i></i><i></i><span>hello-world.html</span></div>
+<pre><b class="pink">&lt;h1&gt;</b>أهلاً CODEX<b class="pink">&lt;/h1&gt;</b>
+<b class="blue">&lt;p&gt;</b>أول خطوة في رحلتك<b class="blue">&lt;/p&gt;</b>
+<b class="green">&lt;button&gt;</b>ابدأ<b class="green">&lt;/button&gt;</b></pre>
+      <div class="editor-result"><span>●</span> تم تشغيل الكود بنجاح</div>
+    </div>
+    <div class="floating xp-float">⚡ +10 XP</div><div class="floating streak-float">🔥 استمر كل يوم</div>
+  </div>
+</section>
+<section class="stats wrap">
+  <div><strong id="statXP">0</strong><span>نقاط XP</span></div><div><strong id="statDone">0</strong><span>دروس مكتملة</span></div><div><strong id="statCourses">4</strong><span>مسارات تعليمية</span></div>
+</section>
+<section class="section wrap" id="tracks">
+  <div class="section-head"><div><span class="eyebrow">LEARNING PATHS</span><h2>اختار أول مسار ليك</h2><p>ابدأ بـ HTML لو دي أول مرة تكتب كود.</p></div><span class="section-note">محتوى متدرج • منظم • عملي</span></div>
+  <div class="tracks-grid">
+    <article class="track featured"><div class="track-icon html-icon">5</div><span class="level">المسار المقترح · مبتدئ</span><h3>HTML</h3><p>ابنِ هيكل صفحات الويب: العناوين، النصوص، الصور، الروابط والنماذج.</p><div class="track-meta"><span>📚 11 درس</span><span>⏱️ 80 دقيقة تقريبًا</span></div><a class="track-link" href="course.html?course=html">ابدأ المسار <b>←</b></a></article>
+    <article class="track"><div class="track-icon css-icon">✦</div><span class="level">مبتدئ</span><h3>CSS</h3><p>حوّل صفحاتك لتصميم منظم بالألوان والخطوط والمسافات والتخطيطات.</p><div class="track-meta"><span>📚 5 دروس</span><span>⏱️ 40 دقيقة تقريبًا</span></div><a class="track-link" href="course.html?course=css">ابدأ المسار <b>←</b></a></article>
+    <article class="track"><div class="track-icon js-icon">JS</div><span class="level">مبتدئ</span><h3>JavaScript</h3><p>تعلم المتغيرات والشروط والدوال، وخلّي صفحاتك تفاعلية.</p><div class="track-meta"><span>📚 5 دروس</span><span>⏱️ 45 دقيقة تقريبًا</span></div><a class="track-link" href="course.html?course=javascript">ابدأ المسار <b>←</b></a></article>
+    <article class="track"><div class="track-icon py-icon">Py</div><span class="level">مبتدئ</span><h3>Python</h3><p>ابدأ أساسيات البرمجة بلغة سهلة وواضحة، خطوة بخطوة.</p><div class="track-meta"><span>📚 5 دروس</span><span>⏱️ 45 دقيقة تقريبًا</span></div><a class="track-link" href="course.html?course=python">ابدأ المسار <b>←</b></a></article>
+  </div>
+</section>
+<section class="section how-section" id="how"><div class="wrap">
+  <div class="section-head"><div><span class="eyebrow">HOW CODEX WORKS</span><h2>اتعلم بالتطبيق، مش بالحفظ</h2></div></div>
+  <div class="how-grid"><div class="how-card"><b>01</b><h3>افهم الفكرة</h3><p>شرح عربي مختصر مع مثال واضح.</p></div><div class="how-card"><b>02</b><h3>جاوب وجرّب</h3><p>اختبر فهمك ونفّذ تحديًا صغيرًا.</p></div><div class="how-card"><b>03</b><h3>افتح اللي بعده</h3><p>اجمع XP وكمل المسار بالتدريج.</p></div></div>
+</div></section>
+<section class="wrap callout"><div><span class="eyebrow">PRACTICE ZONE</span><h2>عندك فكرة؟ جرّب تكتبها بنفسك.</h2><p>ساحة تجريب HTML وCSS وJavaScript مع معاينة مباشرة.</p></div><a class="btn primary" href="playground.html">افتح ساحة التجربة ←</a></section>
+</main>
+<footer class="wrap"><a class="brand" href="index.html">CODE<span>X</span></a><p>اتعلم. جرّب. ابنِ.</p><small>نسخة تجريبية تعليمية؛ تقدمك محفوظ على هذا المتصفح.</small></footer>
+<script src="course-data.js"></script><script src="labs.js"></script><script src="app.js"></script>
+</body></html>

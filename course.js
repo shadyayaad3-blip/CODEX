@@ -27,7 +27,7 @@ let xp = Number(store.get(xpKey, 0)) || 0;
 function loadProgress() {
   try {
     const v = JSON.parse(store.get(progressKey, "[]"));
-    return Array.isArray(v) ? v.filter(n => Number.isInteger(n) && n >= 0 && n < lessons.length) : [];
+    return Array.isArray(v) ? [...new Set(v.filter(n => Number.isInteger(n) && n >= 0 && n < lessons.length))].sort((a, b) => a - b) : [];
   } catch { return []; }
 }
 function save() { store.set(progressKey, JSON.stringify(completed)); }
@@ -277,18 +277,15 @@ function checkChallenge() {
 }
 
 function showHint() {
-  const exp = String(lessons[current][7]).trim();
-  const n = exp.length;
-  const count = n === 1 ? "حرف واحد" : n === 2 ? "حرفين" : n <= 10 ? `${n} حروف` : `${n} حرفًا`;
-  $("hint").textContent = `تلميح: راجع المثال فوق. الجزء الناقص مكوّن من ${count} ويبدأ بالحرف "${exp[0]}".`;
+  $("hint").textContent = "تلميح: ارجع للمثال الموجود في الدرس، وحدد الوسم أو الكلمة التي تكمل نفس الفكرة. التلميح مش هيعرض الإجابة.";
   $("hint").hidden = false;
 }
 
 function updateProgress() {
-  const p = Math.round(completed.length / lessons.length * 100);
+  const p = Math.min(100, Math.round(completed.length / lessons.length * 100));
   $("progressText").textContent = p + "%";
   $("progressFill").style.width = p + "%";
-  $("progressCount").textContent = `${completed.length} من ${lessons.length} دروس مكتملة`;
+  $("progressCount").textContent = `${Math.min(completed.length, lessons.length)} من ${lessons.length} دروس مكتملة`;
 }
 function updateXP() { xp = Number(store.get(xpKey, xp)) || 0; $("xp").textContent = xp; }
 

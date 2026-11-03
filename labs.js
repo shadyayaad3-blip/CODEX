@@ -65,3 +65,39 @@ window.CODEX_LABS.javascript = [
   { goal: "عند الضغط على الزر #btn اكتب أي نص داخل العنصر #out.", html: "<button id=\"btn\">اضغط</button> <p id=\"out\"></p>", starter: "const btn = document.getElementById(\"btn\");\nconst out = document.getElementById(\"out\");\n// btn.addEventListener ...\n",
     checks: [{ label: "الضغط على الزر يكتب نصًا في #out", js: "(function(){var o=document.getElementById('out');o.textContent='';document.getElementById('btn').click();return o.textContent.trim().length>0})()" }] }
 ];
+
+// ---- CODEX V6.2: توسعة منهج HTML من الأساسيات إلى بناء صفحة متكاملة ----
+window.CODEX_COURSES.html.push(
+  ["الوسوم الدلالية", "الوسوم الدلالية توضّح معنى أجزاء الصفحة. header لرأس الصفحة، nav للتنقل، main للمحتوى الأساسي، وfooter للتذييل.", "<header>\n  <h1>موقعي</h1>\n  <nav><a href=\"#home\">الرئيسية</a></nav>\n</header>\n<main id=\"home\">\n  <p>المحتوى الرئيسي</p>\n</main>\n<footer>حقوق النشر</footer>", "أكمل وسم المحتوى الرئيسي:\n<_____>\n  <p>أهلاً</p>\n</main>", ["section", "main", "footer"], 1, "أكمل وسم بداية المحتوى الرئيسي:\n<_____>\n  <h1>CODEX</h1>\n</main>", "main", "main"],
+  ["الصوت والفيديو", "وسم audio لتشغيل ملف صوتي وvideo للفيديو. الخاصية controls تعرض أزرار التشغيل للمستخدم، وsource يحدد الملف.", "<audio controls>\n  <source src=\"song.mp3\" type=\"audio/mpeg\">\n</audio>\n<video controls width=\"320\">\n  <source src=\"clip.mp4\" type=\"video/mp4\">\n</video>", "أكمل الخاصية التي تظهر أدوات التشغيل:\n<video _____>", ["autoplay", "controls", "muted"], 1, "أكمل الخاصية التي تظهر أزرار الفيديو:\n<video _____>", "controls", "controls"],
+  ["تحسين الوصول", "اكتب وصفًا واضحًا للصور في alt، واربط label بحقل الإدخال عن طريق for وid. هذا يساعد المستخدمين وتقنيات المساعدة.", "<label for=\"email\">البريد الإلكتروني</label>\n<input id=\"email\" type=\"email\">\n<img src=\"logo.png\" alt=\"شعار CODEX\">", "أكمل الخاصية التي تصف الصورة:\n<img src=\"logo.png\" _____=\"شعار الموقع\">", ["href", "alt", "for"], 1, "أكمل وصف الصورة:\n<img src=\"photo.jpg\" _____=\"صورة للحديقة\">", "alt", "alt"],
+  ["هيكل ملف HTML", "ابدأ المستند بـ !DOCTYPE html، ثم html. داخل head نضع معلومات الصفحة، وداخل body نضع المحتوى الظاهر. meta charset يدعم الحروف العربية.", "<!DOCTYPE html>\n<html lang=\"ar\" dir=\"rtl\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>صفحتي</title>\n</head>\n<body>\n  <h1>أهلاً CODEX</h1>\n</body>\n</html>", "أكمل ترميز الأحرف لدعم العربية:\n<meta charset=\"_____\">", ["ASCII", "UTF-8", "HTML"], 1, "أكمل الترميز الصحيح:\n<meta charset=\"_____\">", "UTF-8", "UTF-8"],
+  ["مشروع HTML النهائي", "دلوقتي هتجمع المهارات في صفحة تعريف شخصية: عنوان، صورة بوصف، نبذة، قائمة مهارات، رابط، وقسم تواصل. ركّز على ترتيب العناصر واختيار الوسوم المناسبة.", "<header><h1>اسمي</h1></header>\n<main>\n  <section>\n    <h2>نبذة عني</h2>\n    <p>أتعلم تطوير الويب.</p>\n    <img src=\"me.jpg\" alt=\"صورتي الشخصية\">\n  </section>\n  <section>\n    <h2>مهاراتي</h2>\n    <ul><li>HTML</li><li>CSS</li></ul>\n  </section>\n  <footer><a href=\"mailto:hello@example.com\">تواصل معي</a></footer>\n</main>", "أي وسم نستخدمه لعنصر قائمة داخل ul؟", ["li", "tr", "span"], 0, "أكمل وسم عنصر القائمة:\n<ul>\n  <_____>HTML</li>\n</ul>", "li", "li"]
+);
+window.CODEX_LABS.html.push(
+  { goal: "ابنِ صفحة تستخدم header وnav وmain وfooter، واجعل داخل nav رابطًا واحدًا على الأقل.", starter: "<!-- header + nav + main + footer -->\n", checks: [{ label: "header موجود", sel: "header" }, { label: "nav يحتوي رابطًا", sel: "nav a", attr: "href" }, { label: "main يحتوي محتوى", sel: "main", text: 2 }, { label: "footer يحتوي نصًا", sel: "footer", text: 2 }] },
+  { goal: "أضف audio وvideo، ولكل واحد controls وsource له src.", starter: "<!-- audio و video -->\n", checks: [{ label: "audio مع controls", sel: "audio[controls]" }, { label: "source للصوت", sel: "audio source[src]" }, { label: "video مع controls", sel: "video[controls]" }, { label: "source للفيديو", sel: "video source[src]" }] },
+  { goal: "أنشئ صورة لها alt، وحقل بريد مرتبطًا بـ label باستخدام for وid.", starter: "<!-- img + label + input -->\n", checks: [{ label: "صورة لها وصف alt", sel: "img[alt]" }, { label: "label مرتبط بحقل", sel: "label[for]" }, { label: "حقل بريد إلكتروني", sel: "input[type=email][id]" }] },
+  { goal: "اكتب هيكل مستند HTML كاملًا يحتوي html وhead وbody وmeta charset.", starter: "<!DOCTYPE html>\n<!-- اكتب بقية الهيكل -->\n", checks: [{ label: "عنصر html", sel: "html" }, { label: "عنصر head", sel: "head" }, { label: "عنصر body", sel: "body" }, { label: "ترميز UTF-8", sel: "meta[charset=utf-8]" }] },
+  { goal: "المشروع النهائي: أنشئ صفحة شخصية فيها header، وقسما نبذة ومهارات، وصورة بوصف، وقائمة مهارات، ورابط تواصل.", starter: "<!-- ابنِ صفحة التعريف بنفسك -->\n", checks: [{ label: "عنوان داخل header", sel: "header h1", text: 2 }, { label: "قسمان على الأقل", sel: "main section", min: 2 }, { label: "صورة بوصف", sel: "img[alt]" }, { label: "قائمة بها مهارتان", sel: "ul li", min: 2 }, { label: "رابط تواصل", sel: "a[href]", text: 2 }] }
+);
+
+// إصلاح التحديات العملية للدروس الإضافية القديمة حتى لا يظهر تحدٍّ بلا إجابة.
+Object.assign(window.CODEX_COURSES.html[5], {
+  6: "أكمل وسم عنصر القائمة:\n<ul>\n  <_____>HTML</li>\n</ul>", 7: "li"
+});
+Object.assign(window.CODEX_COURSES.html[6], {
+  6: "أكمل وسم صف الجدول:\n<table>\n  <_____><td>CODEX</td></tr>\n</table>", 7: "tr"
+});
+Object.assign(window.CODEX_COURSES.html[7], {
+  6: "أكمل وسم النص المهم:\n<p><_____>مهم</strong></p>", 7: "strong"
+});
+Object.assign(window.CODEX_COURSES.html[8], {
+  6: "أكمل الوسم الذي يجمع جزءًا من النص داخل السطر:\n<p>أنا أتعلم <_____ class=\"highlight\">HTML</span></p>", 7: "span"
+});
+Object.assign(window.CODEX_COURSES.html[9], {
+  6: "أكمل الوسم المناسب لمقال مستقل:\n<_____><h2>عنوان المقال</h2></article>", 7: "article"
+});
+Object.assign(window.CODEX_COURSES.html[10], {
+  6: "أكمل وسم المحتوى الرئيسي:\n<_____><p>محتوى الصفحة</p></main>", 7: "main"
+});

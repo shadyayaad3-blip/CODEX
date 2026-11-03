@@ -37,3 +37,245 @@ body::before{
 }
 
 :focus-visible{outline:2px solid #b69aff;outline-offset:2px}
+.brand img {
+    width: 150px;
+    height: 65px;
+    object-fit: contain;
+    display: block;
+}.brand-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.creator-name {
+    color: #a855f7;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    margin-top: -5px;
+    text-shadow: 0 0 10px #a855f7;
+}.footer-credit {
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 25px;
+    border-top: 1px solid rgba(168, 85, 247, 0.2);
+    color: #888;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.footer-credit span {
+    color: #a855f7;
+    font-weight: 900;
+    text-shadow: 0 0 12px #a855f7;
+}/* LOADING SCREEN */
+#codex-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: #050008;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: opacity .8s ease, visibility .8s ease;
+}
+
+#codex-loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-code {
+    font-size: 75px;
+    color: #a855f7;
+    text-shadow: 0 0 25px #a855f7;
+    animation: pulse 1.5s infinite alternate;
+}
+
+#codex-loader h1 {
+    font-size: 55px;
+    letter-spacing: 8px;
+    margin: 10px;
+}
+
+#codex-loader h1 span {
+    color: #a855f7;
+}
+
+#codex-loader p {
+    color: #c084fc;
+    letter-spacing: 7px;
+}
+
+.loading-bar {
+    width: 280px;
+    height: 9px;
+    border: 2px solid #a855f7;
+    border-radius: 20px;
+    margin-top: 35px;
+    overflow: hidden;
+    box-shadow: 0 0 15px #a855f7;
+}
+
+.loading-progress {
+    height: 100%;
+    width: 0;
+    background: #a855f7;
+    box-shadow: 0 0 20px #a855f7;
+    animation: loading 2.2s ease forwards;
+}
+
+.loading-text {
+    margin-top: 20px;
+    color: #c084fc;
+    letter-spacing: 6px;
+}
+
+#codex-loader small {
+    margin-top: 35px;
+    color: #777;
+    letter-spacing: 3px;
+}
+
+@keyframes loading {
+    to { width: 100%; }
+}
+
+@keyframes pulse {
+    from { text-shadow: 0 0 10px #a855f7; }
+    to { text-shadow: 0 0 40px #a855f7; }
+}
+
+/* ANIMATED CODE BACKGROUND */
+.code-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.code-particle {
+    position: absolute;
+    top: -50px;
+    color: #a855f7;
+    opacity: .35;
+    font-family: monospace;
+    animation: codeFall linear infinite;
+    text-shadow: 0 0 10px #a855f7;
+}
+
+@keyframes codeFall {
+    to {
+        transform: translateY(110vh);
+    }
+}/* =========================
+   CODEX ANIMATED BACKGROUND
+========================= */
+
+.code-background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.code-particle {
+    position: absolute;
+    top: -50px;
+    color: #a855f7;
+    opacity: 0;
+    font-family: monospace;
+    text-shadow: 0 0 12px #a855f7;
+    animation: codeFall linear infinite;
+}
+
+@keyframes codeFall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: .4;
+    }
+    85% {
+        opacity: .3;
+    }
+    100% {
+        transform: translateY(110vh) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   SCROLL ANIMATIONS
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   CARD ANIMATIONS
+========================= */
+
+.card,
+.course-card,
+.lesson-card {
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.card:hover,
+.course-card:hover,
+.lesson-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(168, 85, 247, .2);
+}
+
+/* =========================
+   BUTTON ANIMATIONS
+========================= */
+
+button,
+.btn {
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+button:hover,
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(168, 85, 247, .35);
+}
+
+/* =========================
+   SMOOTH SCROLL
+========================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* احترام إعداد تقليل الحركة */
+@media (prefers-reduced-motion: reduce) {
+    .code-particle,
+    .reveal {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}

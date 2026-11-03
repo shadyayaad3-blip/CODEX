@@ -7,7 +7,7 @@
   const completed = ["html", "css", "javascript", "python"].reduce((sum, key) => {
     try {
       const v = JSON.parse(read(P + "codex-progress-" + key, "[]"));
-      return sum + (Array.isArray(v) ? v.length : 0);
+      return sum + (Array.isArray(v) ? new Set(v.filter(Number.isInteger)).size : 0);
     } catch { return sum; }
   }, 0);
   const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
@@ -16,11 +16,13 @@
   document.querySelectorAll(".track").forEach(card => {
     const a = card.querySelector(".track-link"); if (!a) return;
     const key = new URL(a.href).searchParams.get("course");
-    let n = 0; try { n = JSON.parse(read(P + "codex-progress-" + key, "[]")).length; } catch {}
+    let n = 0; try { const v = JSON.parse(read(P + "codex-progress-" + key, "[]")); n = Array.isArray(v) ? new Set(v.filter(Number.isInteger)).size : 0; } catch {}
     const total = ((window.CODEX_COURSES || {})[key] || []).length || 5;
     const bar = document.createElement("div");
     bar.style.cssText = "height:6px;border-radius:9px;background:#383448;overflow:hidden;margin-top:8px";
-    bar.innerHTML = `<i style="display:block;height:100%;width:${n / total * 100}%;background:linear-gradient(90deg,#7845e8,#c084fc)"></i>`;
+    const fill = document.createElement("i");
+    fill.style.cssText = `display:block;height:100%;width:${Math.min(100, Math.max(0, n / total * 100))}%;background:linear-gradient(90deg,#7845e8,#c084fc)`;
+    bar.appendChild(fill);
     card.querySelector(".track-meta").after(bar);
     if (n > 0) a.firstChild.textContent = n >= total ? "راجع المسار " : "كمّل المسار ";
     if (!resume && n > 0 && n < total) resume = key;
